@@ -1,0 +1,57 @@
+Inicio: 
+
+LOGIN 
+
+Registro (obtener tabla cliente) 
+
+ 
+
+
+Aerolinea: 
+
+POST 
+
+GET 
+
+GET ID 
+
+ 
+ 
+
+Ruta: 
+
+POST Crear rutas 
+
+GET obtener rutas 
+
+GET ID 
+
+DELETE eliminar rutas 
+
+PUT actualizar rutas (opcional) 
+
+ 
+ 
+
+Vuelos: 
+
+Post crear vuelos 
+
+Get obtener vuelos 
+
+DELETE 
+
+GET ID 
+
+ 
+
+
+Boletos: 
+
+Crear boleto  
+
+ 
+
+Escalas: 
+
+Obtener escalas 
