@@ -32,6 +32,7 @@ public class TipoAsiento {
     @Column(name = "tipoasiento")
     private String tipoAsiento;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tipoAsiento", cascade = CascadeType.ALL) // Corregido el nombre aquí
     private List<Asientos> asientos; // Corregido el nombre aquí
 }
