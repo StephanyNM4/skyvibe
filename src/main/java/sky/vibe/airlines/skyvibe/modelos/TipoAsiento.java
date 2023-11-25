@@ -1,5 +1,4 @@
 package sky.vibe.airlines.skyvibe.modelos;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,23 +17,21 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "aerolinea")
+@Table(name = "tipoasiento")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Aerolinea {
+public class TipoAsiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idaerolinea")
-    private int idAerolinea;
+    @Column(name = "idtipoasiento")
+    private int idTipoAsiento;
 
-    @Column(name = "nombreaerolinea")
-    private String nombreAerolinea; 
+    @Column(name = "tipoasiento")
+    private String tipoAsiento;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "aerolinea", cascade = CascadeType.ALL)
-    private List<Vuelo> vuelos;
-
+    @OneToMany(mappedBy = "tipoAsiento", cascade = CascadeType.ALL) // Corregido el nombre aquí
+    private List<Asientos> asientos; // Corregido el nombre aquí
 }

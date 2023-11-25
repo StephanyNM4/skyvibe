@@ -41,5 +41,5 @@ public class Ruta {
 
     @JsonIgnore
     @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL)
-    private List<Vuelo> vuelo;
+    private List<Vuelo> vuelos;
 }

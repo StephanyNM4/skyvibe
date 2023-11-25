@@ -53,6 +53,10 @@ public class Vuelo {
 
     @JsonIgnore
     @OneToMany(mappedBy = "vuelo")
-    private List<Escala> escala;
+    private List<Escala> escalas;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL)
+    private List<Asientos> asientos;
 
 }
