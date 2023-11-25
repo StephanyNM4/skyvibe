@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "31b0573d-3cd7-49ee-8fff-8744bab685e1",
+		"name": "SkyVibe Airlines",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28261215"
+	},
+	"item": [
+		{
+			"name": "Prueba",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelo/prueba",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"prueba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear aerolinea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/aerolinea/crear?nombreAerolinea=Air Peru",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aerolinea",
+						"crear"
+					],
+					"query": [
+						{
+							"key": "nombreAerolinea",
+							"value": "Air Peru"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener aerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/aerolinea/obtener?idAerolinea=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aerolinea",
+						"obtener"
+					],
+					"query": [
+						{
+							"key": "idAerolinea",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener aerolineas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/aerolinea/obtenerTodas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aerolinea",
+						"obtenerTodas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar aerolinea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/aerolinea/actualizar?idAerolinea=2&nombreAerolinea=Airlines France",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aerolinea",
+						"actualizar"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "idAerolinea",
+							"value": "2"
+						},
+						{
+							"key": "nombreAerolinea",
+							"value": "Airlines France"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar aerolinea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/aerolinea/eliminar?idAerolinea=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aerolinea",
+						"eliminar"
+					],
+					"query": [
+						{
+							"key": "idAerolinea",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear ruta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"España\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/ruta/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener ruta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/obtener?idRuta=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"obtener"
+					],
+					"query": [
+						{
+							"key": "idRuta",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener rutas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/obtenerTodas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"obtenerTodas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar ruta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"Peru\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/ruta/actualizar?idRuta=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"actualizar"
+					],
+					"query": [
+						{
+							"key": "idRuta",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar ruta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/eliminar?idRuta=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"eliminar"
+					],
+					"query": [
+						{
+							"key": "idRuta",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener ruta por destino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/obtener/porDestino?destino=Noruega",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"obtener",
+						"porDestino"
+					],
+					"query": [
+						{
+							"key": "destino",
+							"value": "Noruega"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear vuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idVuelo\" : \"AA2B\",\r\n    \"aerolinea\" : {\r\n        \"idAerolinea\" : \"2\"\r\n    },\r\n    \"ruta\" : {\r\n        \"idRuta\" : \"5\"\r\n    },\r\n    \"fechaPartida\" : \"2023-12-18\",\r\n    \"numeroVuelo\" : \"4322\",\r\n    \"horaPartida\" : \"18:00\",\r\n    \"duracion\" : \"2\",\r\n    \"gate\" : \"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vuelo/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener vuelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelo/obtener?idVuelo=AA1C",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"obtener"
+					],
+					"query": [
+						{
+							"key": "idVuelo",
+							"value": "AA1C"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener vuelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelo/obtenerTodos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"obtenerTodos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar vuelo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelo/eliminar?idVuelo=AA2B",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"eliminar"
+					],
+					"query": [
+						{
+							"key": "idVuelo",
+							"value": "AA2B"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar fecha vuelo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaPartida\" : \"2023-12-05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/vuelo/actualizar?idVuelo=AA1C",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelo",
+						"actualizar"
+					],
+					"query": [
+						{
+							"key": "idVuelo",
+							"value": "AA1C"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar escala",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AA2B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/escala/actualizar?idEscala=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"actualizar"
+					],
+					"query": [
+						{
+							"key": "idEscala",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear escala",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\": \"AA1C\"\r\n    },\r\n    \"nombreAeropuerto\" : \"Aeropuerto internacional DFGHJ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/escala/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener escala",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/escala/obtener?idEscala=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"obtener"
+					],
+					"query": [
+						{
+							"key": "idEscala",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener escalas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/escala/obtenerTodas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"obtenerTodas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar escala",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/escala/eliminar?idEscala=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"eliminar"
+					],
+					"query": [
+						{
+							"key": "idEscala",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

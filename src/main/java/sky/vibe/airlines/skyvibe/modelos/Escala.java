@@ -1,40 +1,38 @@
 package sky.vibe.airlines.skyvibe.modelos;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-@Table(name = "aerolinea")
+@Table(name = "escalas")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Aerolinea {
-
+public class Escala {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idaerolinea")
-    private int idAerolinea;
+    @Column(name = "idescala")
+    private int idEscala;
 
-    @Column(name = "nombreaerolinea")
-    private String nombreAerolinea; 
+    @ManyToOne
+    @JoinColumn(name = "idvuelo", referencedColumnName = "idvuelo")
+    private Vuelo vuelo;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "aerolinea", cascade = CascadeType.ALL)
-    private List<Vuelo> vuelo;
+    @Column(name = "nombreaeropuerto")
+    private String nombreAeropuerto; 
 
 }
