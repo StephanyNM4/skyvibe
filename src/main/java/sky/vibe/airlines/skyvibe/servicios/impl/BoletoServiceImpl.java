@@ -1,5 +1,7 @@
 package sky.vibe.airlines.skyvibe.servicios.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +49,11 @@ public class BoletoServiceImpl implements BoletoService {
 
         return this.boletoRepository.save(boleto);
         
+    }
+
+    @Override
+    public List<Boleto> boletosDeUsuario(int id) {
+        return this.clienteRepository.findById(id).get().getBoletos();
     }
     
 }

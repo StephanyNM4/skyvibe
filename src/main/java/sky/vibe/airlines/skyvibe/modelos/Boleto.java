@@ -1,5 +1,7 @@
 package sky.vibe.airlines.skyvibe.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Boleto {
     @Column(name = "idboleto")
     private int idBoleto;
 
+    
     @ManyToOne
     @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
     private Cliente cliente;
