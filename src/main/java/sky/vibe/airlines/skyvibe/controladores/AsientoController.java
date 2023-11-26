@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,4 +27,19 @@ public class AsientoController {
         return this.asientosServiceImpl.agregarAsientoAVuelo(asiento);
     
 }
+    @GetMapping("vueloAsientos/{idVuelo}")
+    public List<Asientos> cancionesArtista(@PathVariable(name="idVuelo") String idVuelo) {
+        return asientosServiceImpl.AsientosDeVuelo(idVuelo);
+    }
+
+    @PutMapping("/seleccionarAsiento/{idAsiento}")
+    public Asientos seleccionarAsiento(@PathVariable(name="idAsiento") int idAsiento) {
+        return this.asientosServiceImpl.seleccionarAsiento(idAsiento);
+    }
+
+    @PutMapping("/deseleccionarAsiento/{idAsiento}")
+    public Asientos deseleccionarAsiento(@PathVariable(name="idAsiento") int idAsiento) {
+        return this.asientosServiceImpl.deseleccionarrAsiento(idAsiento);
+    }
+
 }

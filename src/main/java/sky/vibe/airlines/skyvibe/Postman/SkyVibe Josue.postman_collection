@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "1d25705f-ba41-4158-9ce4-d3b85db09340",
+		"name": "SkyVibe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31043432"
+	},
+	"item": [
+		{
+			"name": "CrearCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\" : \"Alejandraaa\",\r\n   \"apellido\": \"Siuuu\",\r\n   \"correo\": \"aa@gmail.com\",\r\n   \"contrasena\": \"12344334\",\r\n   \"telefono\": \"0101\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/clientes/guardar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"guardar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"correo\": \"Alesasddsf@gmail.com\",\r\n  \"contrasena\": \"12344334\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/clientes/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clientes/obtener/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"obtener",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarCliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clientes/eliminar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"eliminar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarCliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\" : \"Aleeeeeeeee\",\r\n   \"apellido\": \"Siuuu\",\r\n   \"correo\": \"de@gmail.com\",\r\n   \"contrasena\": \"12344334\",\r\n   \"telefono\": \"0101\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/clientes/actualizar/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"actualizar",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tipo asiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoAsiento\": \"normal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/tipoasiento/guardar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tipoasiento",
+						"guardar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearAsientoVuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoAsiento\" : {\r\n        \"idTipoAsiento\" : \"1\"\r\n    },\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AA2B\"\r\n    },\r\n    \"nombreAsiento\" : \"22222\",\r\n    \"disponible\" : true\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/asiento/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asiento",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VuelosAsiento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/asiento/vueloAsientos/AA2B",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asiento",
+						"vueloAsientos",
+						"AA2B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SeleccionarAsiento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/asiento/seleccionarAsiento/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asiento",
+						"seleccionarAsiento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DesseleccionarAsiento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/asiento/deseleccionarAsiento/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asiento",
+						"deseleccionarAsiento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearBoleto",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

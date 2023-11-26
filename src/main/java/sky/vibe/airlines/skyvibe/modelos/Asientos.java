@@ -41,7 +41,7 @@ public class Asientos {
     private String  nombreAsiento; 
 
     @Column(name = "disponible")
-    private String  disponible; 
+    private boolean  disponible; 
 
     @JsonIgnore
     @OneToOne(mappedBy = "asiento")
