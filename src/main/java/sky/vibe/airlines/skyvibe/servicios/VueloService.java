@@ -15,4 +15,6 @@ public interface VueloService {
     public String eliminarVuelo(String idVuelo);
 
     public String actualizarVuelo(String idVuelo, Vuelo vuelo);
+
+    public List<Vuelo> buscarVuelosPorRuta(String origen, String destino);
 }

@@ -7,7 +7,7 @@ public interface ClienteService {
     
     public Cliente guardarCliente(Cliente cliente);
 
-    public boolean Login(Cliente cliente);
+    public int Login(Cliente cliente);
     //Se obiente con los gets el cliente.correo y cliente.contraseña
 
     public Cliente obtenerCliente(int idCliente);

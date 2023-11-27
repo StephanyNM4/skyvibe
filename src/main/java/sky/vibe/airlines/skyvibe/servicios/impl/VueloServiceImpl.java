@@ -72,5 +72,17 @@ public class VueloServiceImpl implements VueloService{
         }
     return "Vuelo no encontrado";
     }
+
+    @Override
+    public List<Vuelo> buscarVuelosPorRuta(String origen, String destino) {
+        Ruta ruta = this.rutaRepository.findByOrigenAndDestino(origen, destino);
     
-}
+        if (ruta != null) {
+            List<Vuelo> vuelos = ruta.getVuelos();
+            return vuelos;
+        } 
+        return null;
+        }
+    }
+
+

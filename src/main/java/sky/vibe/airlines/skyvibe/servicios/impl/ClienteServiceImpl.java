@@ -31,12 +31,12 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public boolean Login(Cliente cliente) {
+    public int Login(Cliente cliente) {
         Cliente clienteEncontrado = clienteRepository.findByCorreoAndContrasena(cliente.getCorreo(), cliente.getContrasena());
         if (clienteEncontrado != null) {
-            return true;
+            return clienteEncontrado.getIdCliente();
         } else {
-            return false;
+            return 0;
         }
     }
 

@@ -71,18 +71,21 @@ public class RutaServiceImpl implements RutaService{
     return "Ruta no encontrada";
     }
 
-@Override
-public List<String> obtenerOrigenes() {
-    List<Ruta> lstrutas = this.rutaRepository.findAll();
+    @Override
+    public List<String> obtenerOrigenes() {
+        List<Ruta> lstrutas = this.rutaRepository.findAll();
 
-    List<String> origenes = new ArrayList<>();
+        List<String> origenes = new ArrayList<>();
 
-    for (Ruta ruta : lstrutas) {
-        origenes.add(ruta.getOrigen());
+        for (Ruta ruta : lstrutas) {
+            String origen = ruta.getOrigen();
+            if (!origenes.contains(origen)) {
+                origenes.add(origen);
+            }
+        }
+        return origenes;
     }
-
-    return origenes;
-}
+    
 
     
     

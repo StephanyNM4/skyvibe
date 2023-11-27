@@ -28,7 +28,7 @@ public class AsientoController {
     
 }
     @GetMapping("vueloAsientos/{idVuelo}")
-    public List<Asientos> cancionesArtista(@PathVariable(name="idVuelo") String idVuelo) {
+    public List<Asientos> vueloAsientos(@PathVariable(name="idVuelo") String idVuelo) {
         return asientosServiceImpl.AsientosDeVuelo(idVuelo);
     }
 
@@ -42,4 +42,8 @@ public class AsientoController {
         return this.asientosServiceImpl.deseleccionarrAsiento(idAsiento);
     }
 
+    @GetMapping("asientoEstado/{idAsiento}")
+    public boolean estadoAsiento(@PathVariable(name="idAsiento") int id) {
+        return asientosServiceImpl.estadoAsiento(id);
+    }
 }

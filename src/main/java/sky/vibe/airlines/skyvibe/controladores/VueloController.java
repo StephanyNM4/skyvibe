@@ -52,4 +52,9 @@ public class VueloController {
     public String actualizarVuelo(@RequestParam(name = "idVuelo") String idVuelo, @RequestBody Vuelo vuelo) {
         return this.vueloServiceImpl.actualizarVuelo(idVuelo, vuelo);
     }
+
+    @GetMapping("/buscarVuelosPorRuta")
+    public List<Vuelo> buscarVuelosPorRuta(@RequestParam(name = "origen") String origen, @RequestParam(name = "destino") String destino) {
+        return this.vueloServiceImpl.buscarVuelosPorRuta(origen, destino);
+    }
 }

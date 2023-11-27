@@ -32,7 +32,7 @@ public class ClienteController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestBody Cliente cliente) {
+    public int login(@RequestBody Cliente cliente) {
         return clienteServiceImpl.Login(cliente);
     }
 

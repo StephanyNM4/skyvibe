@@ -13,4 +13,6 @@ public interface AsientosService {
     public Asientos seleccionarAsiento(int idAsiento);
 
     public Asientos deseleccionarrAsiento(int idAsiento); 
+
+    public boolean estadoAsiento(int id);
 }
