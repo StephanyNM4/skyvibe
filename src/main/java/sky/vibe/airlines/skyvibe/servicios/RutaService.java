@@ -16,4 +16,6 @@ public interface RutaService {
     public String eliminarRuta(int idRuta);
 
     public String actualizarRuta(int idRuta, Ruta ruta);
+
+    public List<String> obtenerOrigenes();
 }

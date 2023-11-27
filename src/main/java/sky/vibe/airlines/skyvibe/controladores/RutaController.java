@@ -57,4 +57,8 @@ public class RutaController {
         return this.rutaServiceImpl.actualizarRuta(idRuta, ruta);
     }
     
+    @GetMapping("/obtenerOrigenes")
+    public List<String> obtenerOrigenes(){
+        return this.rutaServiceImpl.obtenerOrigenes();
+    }
 }

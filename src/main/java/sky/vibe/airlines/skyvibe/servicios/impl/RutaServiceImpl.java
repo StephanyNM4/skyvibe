@@ -1,5 +1,6 @@
 package sky.vibe.airlines.skyvibe.servicios.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,20 @@ public class RutaServiceImpl implements RutaService{
     }
     return "Ruta no encontrada";
     }
+
+@Override
+public List<String> obtenerOrigenes() {
+    List<Ruta> lstrutas = this.rutaRepository.findAll();
+
+    List<String> origenes = new ArrayList<>();
+
+    for (Ruta ruta : lstrutas) {
+        origenes.add(ruta.getOrigen());
+    }
+
+    return origenes;
+}
+
+    
     
 }
