@@ -18,4 +18,6 @@ public interface RutaService {
     public String actualizarRuta(int idRuta, Ruta ruta);
 
     public List<String> obtenerOrigenes();
+
+    public List<String> obtenerDestinos(String origen);
 }

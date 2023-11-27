@@ -1,5 +1,6 @@
 package sky.vibe.airlines.skyvibe.servicios.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,17 @@ public class EscalaServiceImpl implements EscalaService{
     }
 
     return "Escala no encontrada";
+    }
+
+    @Override
+    public List<Escala> obtenerEscalasPorVuelo(String idVuelo) {
+        Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
+
+        if(vuelo.getEscalas() != null) {
+            return vuelo.getEscalas();
+        }
+
+        return null;
     }
     
 }

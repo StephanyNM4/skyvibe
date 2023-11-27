@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "31b0573d-3cd7-49ee-8fff-8744bab685e1",
-		"name": "SkyVibe Airlines",
+		"name": "SkyVibe Airlines Administrador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28261215"
 	},
@@ -108,7 +108,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/aerolinea/actualizar?idAerolinea=2&nombreAerolinea=Airlines France",
+					"raw": "localhost:8080/api/aerolinea/actualizar?idAerolinea=5&nombreAerolinea=Airlines Peru",
 					"host": [
 						"localhost"
 					],
@@ -126,11 +126,11 @@
 						},
 						{
 							"key": "idAerolinea",
-							"value": "2"
+							"value": "5"
 						},
 						{
 							"key": "nombreAerolinea",
-							"value": "Airlines France"
+							"value": "Airlines Peru"
 						}
 					]
 				}
@@ -463,41 +463,6 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar escala",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AA2B\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/api/escala/actualizar?idEscala=2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"escala",
-						"actualizar"
-					],
-					"query": [
-						{
-							"key": "idEscala",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Crear escala",
 			"request": {
 				"method": "POST",
@@ -567,6 +532,41 @@
 						"api",
 						"escala",
 						"obtenerTodas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar escala",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AA2B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/escala/actualizar?idEscala=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"escala",
+						"actualizar"
+					],
+					"query": [
+						{
+							"key": "idEscala",
+							"value": "2"
+						}
 					]
 				}
 			},

@@ -15,4 +15,6 @@ public interface EscalaService {
     public String eliminarEscala(int idEscala);
 
     public String actualizarEscala(int idEscala, Escala escala);
+
+    public List<Escala> obtenerEscalasPorVuelo(String idVuelo);
 }

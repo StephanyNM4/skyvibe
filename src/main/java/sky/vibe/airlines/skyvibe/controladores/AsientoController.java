@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import sky.vibe.airlines.skyvibe.modelos.Asientos;
@@ -25,9 +26,9 @@ public class AsientoController {
         return this.asientosServiceImpl.agregarAsientoAVuelo(asiento);
     
 }
-    @GetMapping("vueloAsientos/{idVuelo}")
+    @GetMapping("/vueloAsientos/{idVuelo}")
     public List<Asientos> vueloAsientos(@PathVariable(name="idVuelo") String idVuelo) {
-        return asientosServiceImpl.AsientosDeVuelo(idVuelo);
+        return asientosServiceImpl.asientosDeVuelo(idVuelo);
     }
 
     @PutMapping("/seleccionarAsiento/{idAsiento}")
@@ -40,8 +41,18 @@ public class AsientoController {
         return this.asientosServiceImpl.deseleccionarrAsiento(idAsiento);
     }
 
-    @GetMapping("asientoEstado/{idAsiento}")
+    @GetMapping("/asientoEstado/{idAsiento}")
     public boolean estadoAsiento(@PathVariable(name="idAsiento") int id) {
         return asientosServiceImpl.estadoAsiento(id);
+    }
+
+    @GetMapping("/obtener/porNombre")
+    public Asientos obtenerAsientoNombre(@RequestParam(name = "nombreAsiento") String nombreAsiento, @RequestParam(name = "idVuelo") String idVuelo) {
+        return this.asientosServiceImpl.obtenerAsientoNombre(nombreAsiento, idVuelo);
+    }
+
+    @PutMapping("/seleccionar/porNombre")
+    public Asientos seleccionarAsientoNombre(@RequestParam(name = "nombreAsiento") String nombreAsiento, @RequestParam(name = "idVuelo") String idVuelo) {
+        return this.asientosServiceImpl.seleccionarAsientoNombre(nombreAsiento, idVuelo);
     }
 }

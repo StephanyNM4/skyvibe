@@ -53,4 +53,9 @@ public class EscalaController {
     public String actualizarEscala(@RequestParam(name = "idEscala") int idEscala, @RequestBody Escala escala) {
         return this.escalaServiceImpl.actualizarEscala(idEscala, escala);
     }
+
+    @GetMapping("/obtener/porVuelo")
+    public List<Escala> obtenerEscalasPorVuelo(@RequestParam(name = "idVuelo") String idVuelo) {
+        return this.escalaServiceImpl.obtenerEscalasPorVuelo(idVuelo);
+    }
 }

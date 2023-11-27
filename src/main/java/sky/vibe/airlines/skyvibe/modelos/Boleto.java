@@ -21,12 +21,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Boleto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idboleto")
     private int idBoleto;
 
-    
     @ManyToOne
     @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
     private Cliente cliente;

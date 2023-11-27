@@ -85,6 +85,19 @@ public class RutaServiceImpl implements RutaService{
         }
         return origenes;
     }
+
+    @Override
+    public List<String> obtenerDestinos(String origen) {
+        List<Ruta> rutas = this.rutaRepository.findAll();
+        List<String> destinos = new ArrayList<>();
+        for (Ruta ruta : rutas) {
+            if(ruta.getOrigen().equals(origen)){
+                destinos.add(ruta.getDestino());
+            }
+        }
+
+        return destinos;
+    }
     
 
     

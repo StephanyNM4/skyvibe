@@ -61,4 +61,9 @@ public class RutaController {
     public List<String> obtenerOrigenes(){
         return this.rutaServiceImpl.obtenerOrigenes();
     }
+
+    @GetMapping("/obtenerDestinos")
+    public List<String> obtenerDestinos(@RequestParam(name = "origen") String origen){
+        return this.rutaServiceImpl.obtenerDestinos(origen);
+    }
 }

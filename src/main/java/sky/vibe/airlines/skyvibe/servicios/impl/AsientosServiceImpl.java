@@ -24,7 +24,7 @@ public class AsientosServiceImpl  implements AsientosService{
     private VueloRepository vueloRepository;
 
     @Autowired
-    private AsientosRepository AsientosRepository;
+    private AsientosRepository asientosRepository;
 
 
     @Override
@@ -38,14 +38,14 @@ public class AsientosServiceImpl  implements AsientosService{
             Vuelo vuelo = this.vueloRepository.findById(asiento.getVuelo().getIdVuelo()).get();
             asiento.setVuelo(vuelo);
         }
-        return this.AsientosRepository.save(asiento);
+        return this.asientosRepository.save(asiento);
     }
 
 
     @Override
-    public List<Asientos> AsientosDeVuelo(String id) {
+    public List<Asientos> asientosDeVuelo(String id) {
 
-        List<Asientos> lstAsientos = this.AsientosRepository.findByVuelo_IdVuelo(id);
+        List<Asientos> lstAsientos = this.asientosRepository.findByVuelo_IdVuelo(id);
 
         List<Asientos> nvolista = new LinkedList<Asientos>();
         for (Asientos asiento : lstAsientos) {
@@ -59,10 +59,10 @@ public class AsientosServiceImpl  implements AsientosService{
 
     @Override
     public Asientos seleccionarAsiento(int idAsiento) {
-        Asientos asientoSeleccionado = this.AsientosRepository.findById(idAsiento).get();
+        Asientos asientoSeleccionado = this.asientosRepository.findById(idAsiento).get();
         if(asientoSeleccionado !=null){
             asientoSeleccionado.setDisponible(false);
-            this.AsientosRepository.save(asientoSeleccionado);
+            this.asientosRepository.save(asientoSeleccionado);
             return  asientoSeleccionado;
         }
 
@@ -72,10 +72,10 @@ public class AsientosServiceImpl  implements AsientosService{
 
     @Override
     public Asientos deseleccionarrAsiento(int idAsiento) {
-        Asientos asientoSeleccionado = this.AsientosRepository.findById(idAsiento).get();
+        Asientos asientoSeleccionado = this.asientosRepository.findById(idAsiento).get();
         if(asientoSeleccionado !=null){
             asientoSeleccionado.setDisponible(true);
-            this.AsientosRepository.save(asientoSeleccionado);
+            this.asientosRepository.save(asientoSeleccionado);
             return  asientoSeleccionado;
         }
 
@@ -85,7 +85,42 @@ public class AsientosServiceImpl  implements AsientosService{
 
     @Override
     public boolean estadoAsiento(int id) {
-        Asientos asientoEncontrado = this.AsientosRepository.findById(id).get();
+        Asientos asientoEncontrado = this.asientosRepository.findById(id).get();
         return asientoEncontrado.isDisponible();
     }
+
+
+    @Override
+    public Asientos obtenerAsientoNombre(String nombreAsiento, String idVuelo) {
+        List<Asientos> asientos = this.asientosRepository.findAll();
+
+        for (Asientos asiento : asientos) {
+            if(asiento.getVuelo().getIdVuelo().equals(idVuelo)){
+                if(asiento.getNombreAsiento().equals(nombreAsiento)){
+                    return asiento;
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    @Override
+    public Asientos seleccionarAsientoNombre(String nombreAsiento, String idVuelo) {
+        List<Asientos> asientos = this.asientosRepository.findAll();
+
+        for (Asientos asiento : asientos) {
+            if(asiento.getVuelo().getIdVuelo().equals(idVuelo)){
+                if(asiento.getNombreAsiento().equals(nombreAsiento)){
+                    asiento.setDisponible(false);
+                    this.asientosRepository.save(asiento);
+                    return asiento;
+                }
+            }
+        }
+
+        return null;
+    }
+
 }
