@@ -2,7 +2,6 @@ package sky.vibe.airlines.skyvibe.servicios;
 
 import java.util.List;
 
-import sky.vibe.airlines.skyvibe.modelos.Asientos;
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 
 

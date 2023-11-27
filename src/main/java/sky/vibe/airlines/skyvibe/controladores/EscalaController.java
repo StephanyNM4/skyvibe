@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import sky.vibe.airlines.skyvibe.modelos.Aerolinea;
+
 import sky.vibe.airlines.skyvibe.modelos.Escala;
 import sky.vibe.airlines.skyvibe.servicios.impl.EscalaServiceImpl;
 
