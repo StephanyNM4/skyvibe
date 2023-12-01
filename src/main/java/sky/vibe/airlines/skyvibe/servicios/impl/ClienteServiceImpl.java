@@ -3,6 +3,7 @@ package sky.vibe.airlines.skyvibe.servicios.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sky.vibe.airlines.skyvibe.Dto.Login;
 import sky.vibe.airlines.skyvibe.modelos.Cliente;
 import sky.vibe.airlines.skyvibe.repositorios.ClienteRepository;
 import sky.vibe.airlines.skyvibe.servicios.ClienteService;
@@ -31,13 +32,12 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public int Login(Cliente cliente) {
-        Cliente clienteEncontrado = clienteRepository.findByCorreoAndContrasena(cliente.getCorreo(), cliente.getContrasena());
+    public Cliente loginCliente(Login login) {
+        Cliente clienteEncontrado = clienteRepository.findByCorreoAndContrasena(login.getCorreo(), login.getContrasena());
         if (clienteEncontrado != null) {
-            return clienteEncontrado.getIdCliente();
-        } else {
-            return 0;
-        }
+            return clienteEncontrado;
+        } 
+        return null;
     }
 
 

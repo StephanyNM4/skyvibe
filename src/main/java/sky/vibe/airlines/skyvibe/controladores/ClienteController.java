@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import sky.vibe.airlines.skyvibe.Dto.Login;
 import sky.vibe.airlines.skyvibe.modelos.Cliente;
 import sky.vibe.airlines.skyvibe.servicios.impl.ClienteServiceImpl;
 
@@ -32,8 +34,8 @@ public class ClienteController {
     }
 
     @PostMapping("/login")
-    public int login(@RequestBody Cliente cliente) {
-        return clienteServiceImpl.Login(cliente);
+    public Cliente login(@RequestBody Login login) {
+        return clienteServiceImpl.loginCliente(login);
     }
 
     @GetMapping("/obtener/{idCliente}")
