@@ -32,24 +32,39 @@ public class BoletoServiceImpl implements BoletoService {
     
     @Override
     public Boleto crearBoleto(Boleto boleto) {
-        if(boleto.getCliente() != null){
-            Cliente cliente = this.clienteRepository.findById(boleto.getCliente().getIdCliente()).get();
-            boleto.setCliente(cliente);
+        if (boleto.getCliente() != null) {
+            Cliente cliente = this.clienteRepository.findById(boleto.getCliente().getIdCliente()).orElse(null);
+            if (cliente != null) {
+                boleto.setCliente(cliente);
+            }
         }
-
-        if(boleto.getEscala() != null){
-            Escala escala = this.escalaRepository.findById(boleto.getEscala().getIdEscala()).get();
-            boleto.setEscala(escala);
+    
+        if (boleto.getEscala() != null) {
+            Escala escala = this.escalaRepository.findById(boleto.getEscala().getIdEscala()).orElse(null);
+            if (escala != null) {
+                boleto.setEscala(escala);
+            }
         }
+    
+        if (boleto.getAsiento() != null) {
+            Asientos asiento = this.AsientosRepository.findById(boleto.getAsiento().getIdAsiento()).orElse(null);
+            if (asiento != null && asiento.isDisponible()) {
 
-        if(boleto.getAsiento() !=null){
-            Asientos asiento = this.AsientosRepository.findById(boleto.getAsiento().getIdAsiento()).get();
-            boleto.setAsiento(asiento);
+                boleto.setAsiento(asiento);
+
+                asiento.setDisponible(false);
+
+                this.AsientosRepository.save(asiento);
+
+                return this.boletoRepository.save(boleto);
+            } else {
+                
+                throw new RuntimeException("El asiento no está disponible");
+            }
         }
-
-        return this.boletoRepository.save(boleto);
-        
+        return null; 
     }
+    
 
     @Override
     public List<Boleto> boletosDeUsuario(int id) {
