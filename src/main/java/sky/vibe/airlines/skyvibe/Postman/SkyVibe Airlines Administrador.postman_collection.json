@@ -305,7 +305,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/ruta/obtener/porDestino?destino=Noruega",
+					"raw": "localhost:8080/api/ruta/obtener/porDestino?destino=Estados Unidos",
 					"host": [
 						"localhost"
 					],
@@ -319,7 +319,7 @@
 					"query": [
 						{
 							"key": "destino",
-							"value": "Noruega"
+							"value": "Estados Unidos"
 						}
 					]
 				}
@@ -333,7 +333,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idVuelo\" : \"AA2B\",\r\n    \"aerolinea\" : {\r\n        \"idAerolinea\" : \"2\"\r\n    },\r\n    \"ruta\" : {\r\n        \"idRuta\" : \"5\"\r\n    },\r\n    \"fechaPartida\" : \"2023-12-18\",\r\n    \"numeroVuelo\" : \"4322\",\r\n    \"horaPartida\" : \"18:00\",\r\n    \"duracion\" : \"2\",\r\n    \"gate\" : \"3\"\r\n}",
+					"raw": "{\r\n    \"idVuelo\" : \"AA2B\",\r\n    \"aerolinea\" : {\r\n        \"idAerolinea\" : \"1\"\r\n    },\r\n    \"ruta\" : {\r\n        \"idRuta\" : \"1\"\r\n    },\r\n    \"fechaPartida\" : \"2023-12-18\",\r\n    \"numeroVuelo\" : \"4322\",\r\n    \"horaPartida\" : \"18:00\",\r\n    \"horaLlegada\" : \"21:00\",\r\n    \"gate\" : \"3\",\r\n    \"tipoVuelo\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -361,7 +361,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/vuelo/obtener?idVuelo=AA1C",
+					"raw": "localhost:8080/api/vuelo/obtener?idVuelo=AA1B",
 					"host": [
 						"localhost"
 					],
@@ -374,7 +374,7 @@
 					"query": [
 						{
 							"key": "idVuelo",
-							"value": "AA1C"
+							"value": "AA1B"
 						}
 					]
 				}

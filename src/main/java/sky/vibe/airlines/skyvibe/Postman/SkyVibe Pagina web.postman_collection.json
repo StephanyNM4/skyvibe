@@ -65,12 +65,12 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Obtener cliente por id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/clientes/obtener/2",
+					"raw": "localhost:8080/api/clientes/obtener/1",
 					"host": [
 						"localhost"
 					],
@@ -79,7 +79,7 @@
 						"api",
 						"clientes",
 						"obtener",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -143,7 +143,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tipoAsiento\": \"Super vip wow\"\r\n}",
+					"raw": "{\r\n    \"tipoAsiento\": \"Super vip wow\",\r\n    \"precioBase\": 300\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -172,7 +172,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tipoAsiento\" : {\r\n        \"idTipoAsiento\" : \"2\"\r\n    },\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AAA\"\r\n    },\r\n    \"nombreAsiento\" : \"101010\",\r\n    \"disponible\" : true\r\n\r\n}",
+					"raw": "{\r\n    \"tipoAsiento\" : {\r\n        \"idTipoAsiento\" : \"1\"\r\n    },\r\n    \"vuelo\" : {\r\n        \"idVuelo\" : \"AA2B\"\r\n    },\r\n    \"nombreAsiento\" : \"A1\",\r\n    \"disponible\" : true\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -195,12 +195,12 @@
 			"response": []
 		},
 		{
-			"name": "VuelosAsiento",
+			"name": "Obtener asientos por id vuelo",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/vueloAsientos/AAA",
+					"raw": "localhost:8080/api/asiento/vueloAsientos/AA3B",
 					"host": [
 						"localhost"
 					],
@@ -209,19 +209,19 @@
 						"api",
 						"asiento",
 						"vueloAsientos",
-						"AAA"
+						"AA3B"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "SeleccionarAsiento",
+			"name": "Seleccionar Asiento por id",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/seleccionarAsiento/2",
+					"raw": "localhost:8080/api/asiento/seleccionarAsiento/1",
 					"host": [
 						"localhost"
 					],
@@ -230,7 +230,7 @@
 						"api",
 						"asiento",
 						"seleccionarAsiento",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -264,7 +264,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"cliente\": {\r\n    \"idCliente\": 2\r\n  },\r\n  \"escala\": {\r\n    \"idEscala\": 2\r\n  },\r\n  \"asiento\": {\r\n    \"idAsiento\": 2\r\n  },\r\n  \"precio\": 1\r\n}\r\n",
+					"raw": "{\r\n  \"cliente\": {\r\n    \"idCliente\": 1\r\n  },\r\n  \"escala\": {\r\n    \"idEscala\": null\r\n  },\r\n  \"asiento\": {\r\n    \"idAsiento\": 1\r\n  },\r\n  \"precio\": 100\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -292,7 +292,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/boleto/boletosUsuario/2",
+					"raw": "localhost:8080/api/boleto/boletosUsuario/1",
 					"host": [
 						"localhost"
 					],
@@ -301,19 +301,19 @@
 						"api",
 						"boleto",
 						"boletosUsuario",
-						"2"
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "EstadoAsiento",
+			"name": "Estado con id asiento",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/asientoEstado/2",
+					"raw": "localhost:8080/api/asiento/asientoEstado/3",
 					"host": [
 						"localhost"
 					],
@@ -322,7 +322,7 @@
 						"api",
 						"asiento",
 						"asientoEstado",
-						"2"
+						"3"
 					]
 				}
 			},
@@ -406,12 +406,12 @@
 			"response": []
 		},
 		{
-			"name": "Obtener escalas por id vuelo",
+			"name": "Obtener escalas por id vuelo padre",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/escala/obtener/porVuelo?idVuelo=AA2B",
+					"raw": "localhost:8080/api/escala/obtener/porVuelo?idVuelo=AA1B",
 					"host": [
 						"localhost"
 					],
@@ -425,7 +425,7 @@
 					"query": [
 						{
 							"key": "idVuelo",
-							"value": "AA2B"
+							"value": "AA1B"
 						}
 					]
 				}
@@ -433,12 +433,12 @@
 			"response": []
 		},
 		{
-			"name": "Vuelo ruta",
+			"name": "Obtener vuelo a partir de origen y destino",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/vuelo/buscarVuelosPorRuta?origen=Mexico&destino=España",
+					"raw": "localhost:8080/api/vuelo/buscarVuelosPorRuta?origen=Honduras&destino=España",
 					"host": [
 						"localhost"
 					],
@@ -451,7 +451,7 @@
 					"query": [
 						{
 							"key": "origen",
-							"value": "Mexico"
+							"value": "Honduras"
 						},
 						{
 							"key": "destino",
@@ -483,6 +483,37 @@
 						{
 							"key": "nombreAsiento",
 							"value": "A1"
+						},
+						{
+							"key": "idVuelo",
+							"value": "AA2B"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear total asientos por vuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/asiento/crear/todos?cantidadAsientos=120&idVuelo=AA2B",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"asiento",
+						"crear",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "cantidadAsientos",
+							"value": "120"
 						},
 						{
 							"key": "idVuelo",

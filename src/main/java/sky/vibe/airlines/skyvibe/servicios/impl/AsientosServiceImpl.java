@@ -123,4 +123,89 @@ public class AsientosServiceImpl  implements AsientosService{
         return null;
     }
 
+
+    @Override
+    public String crearTotalAsientosPorVuelo(String idVuelo, int cantidadAsientos) {
+        Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
+
+        if (vuelo != null) {
+            TipoAsiento primeraClase = this.tipoAsientoRepository.findById(1).get();
+        TipoAsiento ejecutivo = this.tipoAsientoRepository.findById(2).get();
+        TipoAsiento normal = this.tipoAsientoRepository.findById(3).get();
+        String[] columnasPrimeraClase = {"A", "B", "E", "F"};
+        String[] columnas = {"A", "B", "C", "D", "E", "F"};
+        int filas = 0;
+
+        /**
+         * Creamos asientos de primera clase
+         */
+        for (int i = 0; i < columnasPrimeraClase.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                filas = j + 1;
+                Asientos asientoPrimeraClase = new Asientos();
+                asientoPrimeraClase.setNombreAsiento(columnasPrimeraClase[i]+filas);
+                asientoPrimeraClase.setTipoAsiento(primeraClase);
+                asientoPrimeraClase.setVuelo(vuelo);
+                asientoPrimeraClase.setDisponible(true);
+                this.asientosRepository.save(asientoPrimeraClase);
+            }
+        }
+
+        /**
+         * Creamos asientos ejecutivos
+         */
+        for (int i = 0; i < columnas.length; i++) {
+            for (int j = 0; j < 6; j++) {
+                filas = j + 5;
+                Asientos asientoEjecutivo = new Asientos();
+                asientoEjecutivo.setNombreAsiento(columnas[i]+filas);
+                asientoEjecutivo.setTipoAsiento(ejecutivo);
+                asientoEjecutivo.setVuelo(vuelo);
+                asientoEjecutivo.setDisponible(true);
+                this.asientosRepository.save(asientoEjecutivo);
+            }
+        }
+
+        /**
+         * Creamos asientos normales
+         */
+        for (int i = 0; i < columnas.length; i++) {
+            for (int j = 0; j < (cantidadAsientos - 48); j++) {
+                filas = j + 18;
+                Asientos asientosNormales = new Asientos();
+                asientosNormales.setNombreAsiento(columnas[i]+filas);
+                asientosNormales.setTipoAsiento(normal);
+                asientosNormales.setVuelo(vuelo);
+                asientosNormales.setDisponible(true);
+                this.asientosRepository.save(asientosNormales);
+            }
+        }
+        
+        return "Creacion de asientos exitosa";
+        }
+        
+        return "Vuelo no encontrado";
+    }
+
+
+    /**
+     * No realiza la eliminacion :/
+     */
+    @Override
+    public String eliiminarTotalAsientosPorVuelo(String idVuelo) {
+    Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
+
+        if (vuelo != null) {
+            for (Asientos asiento : vuelo.getAsientos()) {
+                this.asientosRepository.delete(asiento);
+            }
+            vuelo.setAsientos(null);
+            this.vueloRepository.save(vuelo);
+
+            return "Eliminacion de asientos exitosa";
+        }
+    
+        return "Vuelo no encontrado";
+    }
+
 }

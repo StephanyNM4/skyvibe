@@ -19,4 +19,10 @@ public interface AsientosService {
     public Asientos obtenerAsientoNombre(String nombreAsiento, String idVuelo);
 
     public Asientos seleccionarAsientoNombre(String nombreAsiento, String idVuelo);
+
+    public String crearTotalAsientosPorVuelo(String idVuelo, int cantidadAsientos);
+
+    public String eliiminarTotalAsientosPorVuelo(String idVuelo);
+
+
 }

@@ -2,6 +2,7 @@ package sky.vibe.airlines.skyvibe.controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +55,15 @@ public class AsientoController {
     @PutMapping("/seleccionar/porNombre")
     public Asientos seleccionarAsientoNombre(@RequestParam(name = "nombreAsiento") String nombreAsiento, @RequestParam(name = "idVuelo") String idVuelo) {
         return this.asientosServiceImpl.seleccionarAsientoNombre(nombreAsiento, idVuelo);
+    }
+
+    @PostMapping("/crear/todos")
+    public String crearTotalAsientosPorVuelo(@RequestParam(name = "idVuelo") String idVuelo, @RequestParam(name = "cantidadAsientos") int cantidadAsientos) {
+        return this.asientosServiceImpl.crearTotalAsientosPorVuelo(idVuelo, cantidadAsientos);
+    }
+
+    @DeleteMapping("/eliminar/todos")
+    public String eliiminarTotalAsientosPorVuelo(@RequestParam(name = "idVuelo") String idVuelo) {
+        return this.asientosServiceImpl.eliiminarTotalAsientosPorVuelo(idVuelo);
     }
 }
