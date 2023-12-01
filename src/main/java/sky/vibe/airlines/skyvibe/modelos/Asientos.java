@@ -31,7 +31,6 @@ public class Asientos {
     @ManyToOne
     @JoinColumn(name = "idtipoasiento", referencedColumnName = "idtipoasiento")
     private TipoAsiento tipoAsiento;
-
     
     @ManyToOne
     @JoinColumn(name = "idvuelo", referencedColumnName = "idvuelo")

@@ -28,6 +28,10 @@ public class Escala {
     private int idEscala;
 
     @ManyToOne
+    @JoinColumn(name = "idvuelopadre", referencedColumnName = "idvuelo")
+    private Vuelo vueloPadre;
+
+    @ManyToOne
     @JoinColumn(name = "idvuelo", referencedColumnName = "idvuelo")
     private Vuelo vuelo;
 

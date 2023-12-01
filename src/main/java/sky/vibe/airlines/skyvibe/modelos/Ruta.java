@@ -34,10 +34,10 @@ public class Ruta {
 
     private String destino; 
 
-    private String distancia; 
-
-    @Column(name = "tiporuta")
-    private String tipoRuta; 
+    /**
+     * Distancia implicitamente equivale a kilometros.
+     */
+    private double distancia; 
 
     @JsonIgnore
     @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL)

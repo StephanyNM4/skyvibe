@@ -32,7 +32,10 @@ public class TipoAsiento {
     @Column(name = "tipoasiento")
     private String tipoAsiento;
 
+    @Column(name = "preciobase")
+    private double precioBase;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "tipoAsiento", cascade = CascadeType.ALL) // Corregido el nombre aquí
-    private List<Asientos> asientos; // Corregido el nombre aquí
+    @OneToMany(mappedBy = "tipoAsiento", cascade = CascadeType.ALL)
+    private List<Asientos> asientos;
 }

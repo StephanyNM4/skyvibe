@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -46,16 +47,25 @@ public class Vuelo {
     @Column(name = "horapartida")
     private String horaPartida;
 
-    private String duracion;
+    @Column(name = "horallegada")
+    private String horaLlegada;
 
     private int gate; 
 
+    /*
+     * TRUE -> Si el tipo vuelo es true entonces es un vuelo directo (existe)
+     * FALSE -> Si el tipo vuelo es false entonces es un vuelo indirecto (Se trabaja con escalas)
+     */
+    @Column(name = "tipovuelo")
+    private Boolean tipoVuelo;
+
+
     @JsonIgnore
-    @OneToMany(mappedBy = "vuelo")
+    @OneToMany(mappedBy = "vueloPadre")
     private List<Escala> escalas;
 
-    // @JsonIgnore
-    // @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL)
-    // private List<Asientos> asientos;
+    @JsonIgnore
+    @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL)
+    private List<Asientos> asientos;
 
 }

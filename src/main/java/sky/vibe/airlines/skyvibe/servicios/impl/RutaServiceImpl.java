@@ -61,7 +61,6 @@ public class RutaServiceImpl implements RutaService{
     Ruta rutaActualizar = this.rutaRepository.findById(idRuta).get();
 
     if(rutaActualizar != null) {
-        rutaActualizar.setTipoRuta(ruta.getTipoRuta());
         rutaActualizar.setDestino(ruta.getDestino());
         rutaActualizar.setOrigen(ruta.getOrigen());
         rutaActualizar.setDistancia(ruta.getDistancia());

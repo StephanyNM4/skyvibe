@@ -2,6 +2,7 @@ package sky.vibe.airlines.skyvibe.modelos;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,7 +45,7 @@ public class Cliente {
     @Column(name = "telefono")
     private String telefono;
 
-    
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Boleto> boletos;
 }
