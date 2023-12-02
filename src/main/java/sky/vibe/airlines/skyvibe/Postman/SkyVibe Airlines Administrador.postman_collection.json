@@ -170,7 +170,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"España\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\"\r\n}",
+					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"España\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\",\r\n    \"distancia\": \"5555\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -245,7 +245,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"Peru\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\"\r\n}",
+					"raw": "{\r\n    \"origen\" : \"Honduras\",\r\n    \"destino\" : \"Peru\",\r\n    \"distancia\" : \"22222\",\r\n    \"tipoRuta\" : \"false\",\r\n    \"distancia\": \"5555\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -469,7 +469,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\": \"AA1C\"\r\n    },\r\n    \"nombreAeropuerto\" : \"Aeropuerto internacional DFGHJ\"\r\n}",
+					"raw": "{\r\n    \"vuelo\" : {\r\n        \"idVuelo\": \"BB3C\"\r\n    },\r\n    \"vueloPadre\" : {\r\n        \"idVuelo\": \"AA1B\"\r\n    },\r\n    \"nombreAeropuerto\" : \"Aeropuerto internacional DFGHJ\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -595,6 +595,14 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

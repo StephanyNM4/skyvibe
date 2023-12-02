@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"correo\": \"ola@gmail.com\",\r\n  \"contrasena\": \"12344334\"\r\n}\r\n",
+					"raw": "{\r\n  \"correo\": \"juan@gmail.com\",\r\n  \"contrasena\": \"contrasena123\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -200,7 +200,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/vueloAsientos/AA3B",
+					"raw": "localhost:8080/api/asiento/vueloAsientos/AA2B",
 					"host": [
 						"localhost"
 					],
@@ -209,7 +209,7 @@
 						"api",
 						"asiento",
 						"vueloAsientos",
-						"AA3B"
+						"AA2B"
 					]
 				}
 			},
@@ -264,7 +264,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"cliente\": {\r\n    \"idCliente\": 1\r\n  },\r\n  \"escala\": {\r\n    \"idEscala\": null\r\n  },\r\n  \"asiento\": {\r\n    \"idAsiento\": 1\r\n  },\r\n  \"precio\": 100\r\n}\r\n",
+					"raw": "{\r\n  \"cliente\": {\r\n    \"idCliente\": 1\r\n  },\r\n  \"escala\": {\r\n    \"idEscala\": null\r\n  },\r\n  \"asiento\": {\r\n    \"nombreAsiento\": \"B2\"\r\n  },\r\n  \"precio\": \"5000\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -272,7 +272,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/boleto/crear",
+					"raw": "localhost:8080/api/boleto/crear?idVuelo=AA2B",
 					"host": [
 						"localhost"
 					],
@@ -281,6 +281,12 @@
 						"api",
 						"boleto",
 						"crear"
+					],
+					"query": [
+						{
+							"key": "idVuelo",
+							"value": "AA2B"
+						}
 					]
 				}
 			},
@@ -518,6 +524,37 @@
 						{
 							"key": "idVuelo",
 							"value": "AA2B"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener precio boleto por vuelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/boleto/precioAsiento/paraBoleto?idVuelo=AA2B&nombreAsiento=B2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"boleto",
+						"precioAsiento",
+						"paraBoleto"
+					],
+					"query": [
+						{
+							"key": "idVuelo",
+							"value": "AA2B"
+						},
+						{
+							"key": "nombreAsiento",
+							"value": "B2"
 						}
 					]
 				}
