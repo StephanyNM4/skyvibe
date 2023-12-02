@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "31b0573d-3cd7-49ee-8fff-8744bab685e1",
+		"_postman_id": "d9e10e46-7036-4629-b9d9-75df79da0ab0",
 		"name": "SkyVibe Airlines Administrador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28261215"
+		"_exporter_id": "31043432"
 	},
 	"item": [
 		{
@@ -602,7 +602,10 @@
 			"name": "New Request",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		}

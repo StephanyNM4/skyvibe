@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "2262bab2-9c4d-430f-808e-043a55748dca",
+		"_postman_id": "21933068-7ef1-4561-b388-8a09d96ea718",
 		"name": "SkyVibe Pagina web",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28261215"
+		"_exporter_id": "31043432"
 	},
 	"item": [
 		{
@@ -216,12 +216,12 @@
 			"response": []
 		},
 		{
-			"name": "Seleccionar Asiento por id",
+			"name": "Seleccionar Nombre asiento y vuelo id",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/seleccionarAsiento/1",
+					"raw": "localhost:8080/api/asiento/seleccionarAsiento/A1/AA2B",
 					"host": [
 						"localhost"
 					],
@@ -230,19 +230,32 @@
 						"api",
 						"asiento",
 						"seleccionarAsiento",
-						"1"
+						"A1",
+						"AA2B"
+					],
+					"query": [
+						{
+							"key": "nombreAsiento",
+							"value": "A1",
+							"disabled": true
+						},
+						{
+							"key": "idVuelo",
+							"value": "AA2B",
+							"disabled": true
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "DesseleccionarAsiento",
+			"name": "Desseleccionar por Nombre asiento y vuelo id",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/deseleccionarAsiento/2",
+					"raw": "localhost:8080/api/asiento/deseleccionarAsiento/A1/AA2B",
 					"host": [
 						"localhost"
 					],
@@ -251,7 +264,8 @@
 						"api",
 						"asiento",
 						"deseleccionarAsiento",
-						"2"
+						"A1",
+						"AA2B"
 					]
 				}
 			},
@@ -314,12 +328,12 @@
 			"response": []
 		},
 		{
-			"name": "Estado con id asiento",
+			"name": "Estado del asiento con nombre asiento y id vuelo",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/asiento/asientoEstado/3",
+					"raw": "localhost:8080/api/asiento/asientoEstado/A1/AA2B",
 					"host": [
 						"localhost"
 					],
@@ -328,7 +342,8 @@
 						"api",
 						"asiento",
 						"asientoEstado",
-						"3"
+						"A1",
+						"AA2B"
 					]
 				}
 			},
@@ -360,7 +375,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/ruta/obtenerDestinos?origen=Honduras",
+					"raw": "localhost:8080/api/ruta/obtenerDestinos?origen=Estados Unidos",
 					"host": [
 						"localhost"
 					],
@@ -373,7 +388,7 @@
 					"query": [
 						{
 							"key": "origen",
-							"value": "Honduras"
+							"value": "Estados Unidos"
 						}
 					]
 				}
@@ -444,7 +459,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/vuelo/buscarVuelosPorRuta?origen=Honduras&destino=España",
+					"raw": "localhost:8080/api/vuelo/buscarVuelosPorRuta?origen=Estados Unidos&destino=Francia",
 					"host": [
 						"localhost"
 					],
@@ -457,11 +472,11 @@
 					"query": [
 						{
 							"key": "origen",
-							"value": "Honduras"
+							"value": "Estados Unidos"
 						},
 						{
 							"key": "destino",
-							"value": "España"
+							"value": "Francia"
 						}
 					]
 				}
@@ -556,6 +571,28 @@
 							"key": "nombreAsiento",
 							"value": "B2"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerRutaXDestino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/obtener/porDestino/España",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"obtener",
+						"porDestino",
+						"España"
 					]
 				}
 			},
