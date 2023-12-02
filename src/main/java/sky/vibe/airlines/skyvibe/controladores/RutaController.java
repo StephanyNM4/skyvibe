@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,10 +38,11 @@ public class RutaController {
         return this.rutaServiceImpl.obtenerRuta(idRuta);
     }
 
-    @GetMapping("/obtener/porDestino")
-    public Ruta obtenerRutaXDestino(@RequestParam(name = "destino") String destino) {
+    @GetMapping("/obtener/porDestino/{destino}")
+    public Ruta obtenerRutaXDestino(@PathVariable String destino) {
         return this.rutaServiceImpl.obtenerRutaXDestino(destino);
     }
+
 
     @GetMapping("/obtenerTodas")
     public List<Ruta> obtenerRutas() {

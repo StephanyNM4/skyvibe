@@ -32,19 +32,25 @@ public class AsientoController {
         return asientosServiceImpl.asientosDeVuelo(idVuelo);
     }
 
-    @PutMapping("/seleccionarAsiento/{idAsiento}")
-    public Asientos seleccionarAsiento(@PathVariable(name="idAsiento") int idAsiento) {
-        return this.asientosServiceImpl.seleccionarAsiento(idAsiento);
+    @PutMapping("/seleccionarAsiento/{nombreAsiento}/{idVuelo}")
+    public Asientos seleccionarAsiento(
+            @PathVariable(name = "nombreAsiento") String nombreAsiento,
+            @PathVariable(name = "idVuelo") String idVuelo) {
+        return this.asientosServiceImpl.seleccionarAsiento(nombreAsiento, idVuelo);
     }
 
-    @PutMapping("/deseleccionarAsiento/{idAsiento}")
-    public Asientos deseleccionarAsiento(@PathVariable(name="idAsiento") int idAsiento) {
-        return this.asientosServiceImpl.deseleccionarrAsiento(idAsiento);
+    @PutMapping("/deseleccionarAsiento/{nombreAsiento}/{idVuelo}")
+    public Asientos deseleccionarAsiento(
+            @PathVariable(name = "nombreAsiento") String nombreAsiento,
+            @PathVariable(name = "idVuelo") String idVuelo) {
+        return this.asientosServiceImpl.deseleccionarAsiento(nombreAsiento, idVuelo);
     }
 
-    @GetMapping("/asientoEstado/{idAsiento}")
-    public boolean estadoAsiento(@PathVariable(name="idAsiento") int id) {
-        return asientosServiceImpl.estadoAsiento(id);
+    @GetMapping("/asientoEstado/{nombreAsiento}/{idVuelo}")
+    public boolean estadoAsiento(
+            @PathVariable(name = "nombreAsiento") String nombreAsiento,
+            @PathVariable(name = "idVuelo") String idVuelo) {
+        return asientosServiceImpl.estadoAsiento(nombreAsiento, idVuelo);
     }
 
     @GetMapping("/obtener/porNombre")
