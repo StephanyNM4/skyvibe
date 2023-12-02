@@ -86,7 +86,7 @@ public class AsientosServiceImpl  implements AsientosService{
     @Override
     public boolean estadoAsiento(int id) {
         Asientos asientoEncontrado = this.asientosRepository.findById(id).get();
-        return asientoEncontrado.isDisponible();
+        return asientoEncontrado.getDisponible();
     }
 
 
