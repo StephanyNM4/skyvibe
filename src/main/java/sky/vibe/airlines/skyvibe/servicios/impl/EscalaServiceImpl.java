@@ -22,11 +22,18 @@ public class EscalaServiceImpl implements EscalaService{
 
     @Override
     public Escala crearEscala(Escala escala) {
-        if(escala.getVuelo() != null) {
+        if(escala.getVueloPadre() != null) {
+            Vuelo vueloPadre = this.vueloRepository.findById(escala.getVueloPadre().getIdVuelo()).get();
             Vuelo vuelo = this.vueloRepository.findById(escala.getVuelo().getIdVuelo()).get();
-            escala.setVuelo(vuelo);
+
+            if (!vueloPadre.getTipoVuelo()) {
+                escala.setVueloPadre(vueloPadre);
+                escala.setVuelo(vuelo);
+
+                return this.escalaRepository.save(escala);
+            }
         }
-        return this.escalaRepository.save(escala);
+        return null;
     }
 
     @Override

@@ -27,20 +27,14 @@ public class BoletoController {
     public Boleto crearBoleto(@RequestBody Boleto boleto, @RequestParam(name = "idVuelo") String idVuelo) {
         return this.boletoServiceImpl.crearBoleto(boleto, idVuelo);
     }
-    
+
     @GetMapping("/boletosUsuario/{idUsuario}")
     public List<Boleto> boletosDeUsuario(@PathVariable(name="idUsuario") int id) {
         return boletoServiceImpl.boletosDeUsuario(id);
     }
 
-    @GetMapping("/precioVuelo/directo")
-    public Double precioVueloDirecto(@RequestBody Vuelo vuelo) {
-        return this.boletoServiceImpl.precioVueloDirecto(vuelo);
-    }
-
     @GetMapping("/precioAsiento/paraBoleto")
-    public Double precioAsientoParaBoleto(String idVuelo, String nombreAsiento) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'precioAsientoParaBoleto'");
+    public Double precioAsientoParaBoleto(@RequestParam(name = "idVuelo") String idVuelo, @RequestParam(name = "nombreAsiento") String nombreAsiento) {
+        return this.boletoServiceImpl.precioAsientoParaBoleto(idVuelo, nombreAsiento);
     }
 }

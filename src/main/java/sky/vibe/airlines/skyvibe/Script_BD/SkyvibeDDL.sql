@@ -75,4 +75,4 @@ CREATE TABLE vuelos (
     PRIMARY KEY (idvuelo), 
     FOREIGN KEY (idaerolinea) REFERENCES aerolinea (idaerolinea), 
     FOREIGN KEY (idruta) REFERENCES rutas (idruta) 
-) 
+)

@@ -1,6 +1,5 @@
 package sky.vibe.airlines.skyvibe.servicios.impl;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +7,10 @@ import org.springframework.stereotype.Service;
 
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 import sky.vibe.airlines.skyvibe.modelos.Cliente;
-import sky.vibe.airlines.skyvibe.modelos.Escala;
 import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 import sky.vibe.airlines.skyvibe.modelos.Asientos;
 import sky.vibe.airlines.skyvibe.repositorios.AsientosRepository;
 import sky.vibe.airlines.skyvibe.repositorios.ClienteRepository;
-import sky.vibe.airlines.skyvibe.repositorios.EscalaRepository;
 import sky.vibe.airlines.skyvibe.repositorios.VueloRepository;
 import sky.vibe.airlines.skyvibe.repositorios.BoletoRepository;
 import sky.vibe.airlines.skyvibe.servicios.BoletoService;
@@ -23,9 +20,6 @@ public class BoletoServiceImpl implements BoletoService {
 
     @Autowired
     private ClienteRepository clienteRepository;
-
-    @Autowired
-    private EscalaRepository escalaRepository;
 
     @Autowired
     private AsientosRepository asientosRepository;
@@ -52,6 +46,8 @@ public class BoletoServiceImpl implements BoletoService {
 
             boleto.setEscala(null);
 
+            boleto.setPrecio(precioAsientoParaBoleto(idVuelo, boleto.getAsiento().getNombreAsiento()));
+
             if (boleto.getAsiento() != null) {
             
                 List<Asientos> asientos = vuelo.getAsientos();
@@ -64,11 +60,11 @@ public class BoletoServiceImpl implements BoletoService {
                             boleto.setAsiento(asiento);
                             asiento.setDisponible(false);
                             this.asientosRepository.save(asiento);
+                            return this.boletoRepository.save(boleto);
                         }
                     }
                 }
             }
-            return this.boletoRepository.save(boleto);
         }
         return null; 
     }
@@ -99,47 +95,20 @@ public class BoletoServiceImpl implements BoletoService {
     @Override
     public Double precioAsientoParaBoleto(String idVuelo, String nombreAsiento) {
         Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
-        Double precioVuelo = 0.0;
 
-        if(vuelo!= null && vuelo.getTipoVuelo()){
+        if(vuelo != null && vuelo.getTipoVuelo() == true){
             
-            precioVuelo = precioVueloDirecto(vuelo);
-
             List<Asientos> asientos = vuelo.getAsientos();
                 
                 for (Asientos asiento : asientos) {
                     
                     if(asiento.getNombreAsiento().equals(nombreAsiento)){
                     
-                    return precioVuelo + precioTipoAsiento(asiento.getIdAsiento());
-
-                    }
+                    return precioVueloDirecto(vuelo) + precioTipoAsiento(asiento.getIdAsiento());
                 }
-
-        }else{
-
-
-            if(vuelo!= null){
-                List<Escala> escalas = vuelo.getEscalas();
-
-                for (Escala escala : escalas) {
-                    Vuelo vueloDirecto = escala.getVuelo();
-                    precioVuelo += precioVueloDirecto(vueloDirecto); 
-                }
-
-                List<Asientos> asientos = vuelo.getAsientos();
-                
-                for (Asientos asiento : asientos) {
-                    
-                    if(asiento.getNombreAsiento().equals(nombreAsiento)){
-                    
-                    return precioVuelo + precioTipoAsiento(asiento.getIdAsiento());
-                    
-                    }
-                }
-            }
+            }        
         }
         return null;
     }
-    
+
 }

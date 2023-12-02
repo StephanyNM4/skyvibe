@@ -20,8 +20,8 @@
     INSERT INTO clientes (nombre, apellido, correo, contrasena, telefono) VALUES ('Ana', 'Martínez', 'ana@gmail.com', 'acceso456', '777-888-9999');
 
 -- Insertar tipos de asientos en la tabla tipo asiento
-    INSERT INTO tipoasiento (tipoasiento, preciobase) VALUES ('Primera Clase', 200.00);
-    INSERT INTO tipoasiento (tipoasiento, preciobase) VALUES ('Ejecutivo', 150.00);
+    INSERT INTO tipoasiento (tipoasiento, preciobase) VALUES ('Primera Clase', 800.00);
+    INSERT INTO tipoasiento (tipoasiento, preciobase) VALUES ('Ejecutivo', 450.00);
     INSERT INTO tipoasiento (tipoasiento, preciobase) VALUES ('Normal', 100.00);
 
 -- Insertar rutas en la tabla rutas
