@@ -55,40 +55,44 @@ public class AsientosServiceImpl  implements AsientosService{
         }
         return nvolista;
     }
-
-
+    
     @Override
-    public Asientos seleccionarAsiento(int idAsiento) {
-        Asientos asientoSeleccionado = this.asientosRepository.findById(idAsiento).get();
-        if(asientoSeleccionado !=null){
-            asientoSeleccionado.setDisponible(false);
-            this.asientosRepository.save(asientoSeleccionado);
-            return  asientoSeleccionado;
+    public Asientos seleccionarAsiento(String nombreAsiento, String idVuelo) {
+        Asientos asiento = asientosRepository.findByNombreAsientoAndVuelo_IdVuelo(nombreAsiento, idVuelo);
+    
+        if (asiento != null && asiento.getDisponible()) {
+            asiento.setDisponible(false);
+            asientosRepository.save(asiento);
+            return asiento;
         }
+    
+        return null;
+    }
+    
+    
+    
+    @Override
+    public Asientos deseleccionarAsiento(String nombreAsiento, String idVuelo) {
+        Asientos asiento = asientosRepository.findByNombreAsientoAndVuelo_IdVuelo(nombreAsiento, idVuelo);
 
+        if (asiento != null && !asiento.getDisponible()) {
+            asiento.setDisponible(true);
+            asientosRepository.save(asiento);
+            return asiento;
+        }
+    
         return null;
     }
 
 
-    @Override
-    public Asientos deseleccionarrAsiento(int idAsiento) {
-        Asientos asientoSeleccionado = this.asientosRepository.findById(idAsiento).get();
-        if(asientoSeleccionado !=null){
-            asientoSeleccionado.setDisponible(true);
-            this.asientosRepository.save(asientoSeleccionado);
-            return  asientoSeleccionado;
-        }
-
-        return null;
-    }
-
 
     @Override
-    public boolean estadoAsiento(int id) {
-        Asientos asientoEncontrado = this.asientosRepository.findById(id).get();
-        return asientoEncontrado.getDisponible();
+    public boolean estadoAsiento(String nombreAsiento, String idVuelo) {
+        Asientos asientoEncontrado = asientosRepository.findByNombreAsientoAndVuelo_IdVuelo(nombreAsiento, idVuelo);
+    
+        return asientoEncontrado != null && asientoEncontrado.getDisponible();
     }
-
+    
 
     @Override
     public Asientos obtenerAsientoNombre(String nombreAsiento, String idVuelo) {
@@ -207,5 +211,6 @@ public class AsientosServiceImpl  implements AsientosService{
     
         return "Vuelo no encontrado";
     }
+
 
 }

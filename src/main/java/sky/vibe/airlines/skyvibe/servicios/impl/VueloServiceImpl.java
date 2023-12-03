@@ -9,6 +9,7 @@ import sky.vibe.airlines.skyvibe.modelos.Aerolinea;
 import sky.vibe.airlines.skyvibe.modelos.Ruta;
 import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 import sky.vibe.airlines.skyvibe.repositorios.AerolineaRepository;
+import sky.vibe.airlines.skyvibe.repositorios.AsientosRepository;
 import sky.vibe.airlines.skyvibe.repositorios.RutaRepository;
 import sky.vibe.airlines.skyvibe.repositorios.VueloRepository;
 import sky.vibe.airlines.skyvibe.servicios.VueloService;
@@ -24,6 +25,9 @@ public class VueloServiceImpl implements VueloService{
 
     @Autowired
     private RutaRepository rutaRepository;
+
+    @Autowired
+    private AsientosRepository asientosRepository;
 
     @Override
     public Vuelo crearVuelo(Vuelo vuelo) {
@@ -83,6 +87,11 @@ public class VueloServiceImpl implements VueloService{
         } 
         return null;
         }
+
+    @Override
+    public int numeroAsientosVuelo(String idvuelo) {
+        return asientosRepository.countByVueloIdVuelo(idvuelo);
+    }
     }
 
 

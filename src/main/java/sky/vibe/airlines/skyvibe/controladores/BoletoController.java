@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
-import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 import sky.vibe.airlines.skyvibe.servicios.impl.BoletoServiceImpl;
 
 @RestController
