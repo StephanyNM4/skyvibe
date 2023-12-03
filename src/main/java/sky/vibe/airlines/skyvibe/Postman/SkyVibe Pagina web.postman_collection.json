@@ -597,6 +597,14 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Cantidad de asientos por idVuelo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
