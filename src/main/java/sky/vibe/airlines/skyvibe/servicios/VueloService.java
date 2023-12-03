@@ -17,4 +17,6 @@ public interface VueloService {
     public String actualizarVuelo(String idVuelo, Vuelo vuelo);
 
     public List<Vuelo> buscarVuelosPorRuta(String origen, String destino);
+
+    public int numeroAsientosVuelo(String idvuelo);
 }

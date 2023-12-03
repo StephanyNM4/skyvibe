@@ -14,5 +14,7 @@ public interface AsientosRepository extends JpaRepository<Asientos, Integer> {
     Asientos findByNombreAsientoAndVuelo(String nombreAsiento, Vuelo vuelo);
 
     Asientos findByNombreAsientoAndVuelo_IdVuelo(String nombreAsiento, String idVuelo);
+
+    int countByVueloIdVuelo(String idvuelo);
     
 }
