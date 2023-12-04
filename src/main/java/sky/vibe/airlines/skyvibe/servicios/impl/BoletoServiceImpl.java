@@ -60,7 +60,7 @@ public class BoletoServiceImpl implements BoletoService {
              * Agregamos el precio del boleto dependiendo del tipo de asiento y de la distancia
              * recorrida en el vuelo
              */
-            // boletoNuevo.setPrecio(precioAsientoParaBoleto(boletoJson.getIdVuelo(), boletoJson.getNombreAsiento()));
+            boletoNuevo.setPrecio(precioAsientoParaBoleto(boletoJson.getIdVuelo(), boletoJson.getNombreAsiento()));
 
             /**
              * Verificamos que el asiento seleccionado exista
