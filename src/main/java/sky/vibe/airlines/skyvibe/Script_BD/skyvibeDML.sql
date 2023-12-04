@@ -66,26 +66,63 @@
     INSERT INTO rutas (origen, destino, distancia) VALUES ('Polonia', 'Italia', 3000.00);
     INSERT INTO rutas (origen, destino, distancia) VALUES ('Rusia', 'Polonia', 3000.00);
 
+
+
     -- Insertar vuelos en la tabla vuelos
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA1B', 1, 1, '2023-01-10', 145, '15:45', '11:15', 7, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA2B', 4, 2, '2023-04-15', 110, '08:15', '06:30', 4, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA3B', 5, 3, '2023-05-10', 215, '18:30', '15:40', 8, true);
+    
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA4B', 4, 2, '2023-07-12', 789, '15:45', '06:30', 4, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA5B', 4, 2, '2023-08-15', 101, '08:15', '06:30', 4, true);
+
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA6B', 5, 3, '2023-09-20', 350, '06:30', '15:40', 8, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('AA7B', 5, 3, '2023-10-21', 455, '18:30', '15:40', 8, true);
+
 
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB1C', 2, 4, '2023-02-20', 489, '19:00', '16:15', 2, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB2C', 6, 5, '2023-06-25', 350, '21:45', '18:30', 6, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB3C', 7, 6, '2023-07-20', 455, '13:15', '10:00', 5, true);
     
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB4C', 6, 7, '2023-07-12', 890, '21:45', '19:00', 7, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB5C', 6, 7, '2023-08-15', 616, '21:45', '21:45', 2, true);
+
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB6C', 7, 7, '2023-09-20', 789, '13:15', '18:30', 8, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('BB7C', 7, 7, '2023-10-21', 101, '13:15', '10:00', 5, true);
+
+
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC1D', 3, 7, '2023-03-30', 890, '00:30', '21:45', 4, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC2D', 8, 8, '2023-09-10', 515, '10:00', '06:45', 2, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC3D', 1, 9, '2023-09-15', 616, '16:30', '13:15', 10, true);
     
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC4D', 8, 8, '2023-03-30', 890, '00:30', '06:45', 4, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC5D', 8, 8, '2023-09-10', 515, '10:00', '06:45', 2, true);
+
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC6D', 1, 8, '2023-09-15', 789, '16:45', '00:30', 6, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('CC7D', 1, 8, '2023-11-01', 101, '10:15', '13:00', 10, true);
+
+
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD1E', 3, 10, '2023-03-30', 890, '00:30', '21:45', 4, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD2E', 1, 11, '2023-09-15', 616, '16:30', '13:15', 10, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD3E', 2, 12, '2023-11-01', 777, '21:15', '18:00', 1, true);
 
-    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE1F', 3, 13, '2023-03-22', 789, '23:00', '20:15', 3, false);
-    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE2F', 4, 14, '2023-04-10', 101, '08:00', '05:45', 2, true);
-    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE3F', 5, 15, '2023-05-05', 202, '17:30', '14:20', 6, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD4E', 1, 11, '2023-03-30', 890, '18:00', '20:15', 10, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD5E', 1, 11, '2023-09-15', 515, '08:00', '11:45', 3, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD6E', 1, 11, '2023-11-01', 616, '17:30', '21:20', 7, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD7E', 1, 11, '2023-09-15', 616, '16:30', '13:15', 5, true);
+
+
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD8E', 2, 10, '2023-03-30', 890, '21:15', '18:00', 10, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD9E', 2, 10, '2023-09-15', 515, '21:15', '18:00', 3, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD10E', 2, 10, '2023-11-01', 616, '21:15', '18:00', 7, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('DD11E', 2, 10, '2023-11-01', 777, '21:15', '18:00', 5, true);
+
+
+
+
+    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE1F', 3, 13, '2023-03-22', 789, '18:00', '20:15', 3, false);
+    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE2F', 4, 14, '2023-04-10', 101, '08:00', '11:45', 2, true);
+    INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('EE3F', 5, 15, '2023-05-05', 202, '17:30', '21:20', 6, true);
     
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('FF1G', 1, 16, '2023-01-01', 123, '14:30', '10:00', 5, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('FF2G', 8, 17, '2023-08-29', 505, '09:30', '06:15', 1, true);
@@ -95,10 +132,25 @@
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH2I', 6, 20, '2023-06-18', 303, '21:15', '18:00', 7, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH3I', 7, 21, '2023-07-12', 404, '12:45', '09:30', 4, true);
     
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH4I', 6, 20, '2023-08-29', 789, '14:30', '10:00', 7, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH5I', 6, 20, '2023-10-20', 101, '09:30', '18:00', 10, true);
+        
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH6I', 7, 21, '2023-04-10', 123, '10:00', '14:30', 2, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('HH7I', 7, 21, '2023-05-05', 303, '18:00', '09:30', 9, true);
+
+
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II1J', 1, 22, '2023-01-01', 123, '14:30', '10:00', 5, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II2J', 8, 23, '2023-08-29', 505, '09:30', '06:15', 1, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II3J', 2, 24, '2023-09-03', 606, '16:00', '12:45', 9, true);
     
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II4J', 8, 23, '2023-08-29', 505, '09:30', '06:15', 3, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II5J', 8, 23, '2023-08-29', 505, '09:30', '06:15', 1, true);
+
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II6J', 2, 24, '2023-09-03', 606, '16:00', '12:45', 6, true);
+        INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('II7J', 2, 24, '2023-09-03', 606, '16:00', '12:45', 9, true);
+
+
+
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('JJ1K', 1, 25, '2023-01-01', 123, '14:30', '10:00', 5, false);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('JJ2K', 4, 26, '2023-09-03', 606, '16:00', '12:45', 9, true);
     INSERT INTO vuelos (idvuelo, idaerolinea, idruta, fechapartida, numerovuelo, horallegada, horapartida, gate, tipovuelo) VALUES ('JJ3K', 2, 27, '2023-10-20', 707, '20:45', '17:30', 10, true);

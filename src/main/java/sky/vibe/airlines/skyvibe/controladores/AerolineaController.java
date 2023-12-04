@@ -1,7 +1,16 @@
 package sky.vibe.airlines.skyvibe.controladores;
 
 import java.util.List;
+    // -- --Rutas directas
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Honduras', 'Italia', 8000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Honduras', 'Mexico', 4000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Honduras', 'Brasil', 7000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Honduras', 'Canada', 5000.00);
 
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Italia', 'Honduras', 8000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Mexico', 'Honduras', 4000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Brasil', 'Honduras', 7000.00);
+    // -- INSERT INTO rutas (origen, destino, distancia) VALUES ('Canada', 'Honduras', 5000.00);
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
