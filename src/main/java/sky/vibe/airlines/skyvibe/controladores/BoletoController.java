@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import sky.vibe.airlines.skyvibe.Dto.BoletoJson;
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 import sky.vibe.airlines.skyvibe.servicios.impl.BoletoServiceImpl;
 
@@ -23,8 +22,8 @@ public class BoletoController {
     private BoletoServiceImpl boletoServiceImpl;
 
     @PostMapping("/crear")
-    public Boleto crearBoleto(@RequestBody Boleto boleto, @RequestParam(name = "idVuelo") String idVuelo) {
-        return this.boletoServiceImpl.crearBoleto(boleto, idVuelo);
+    public Boleto crearBoleto(@RequestBody BoletoJson boletoJson) {
+        return this.boletoServiceImpl.crearBoleto(boletoJson);
     }
 
     @GetMapping("/boletosUsuario/{idUsuario}")

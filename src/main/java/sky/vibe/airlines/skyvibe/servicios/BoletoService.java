@@ -2,13 +2,14 @@ package sky.vibe.airlines.skyvibe.servicios;
 
 import java.util.List;
 
+import sky.vibe.airlines.skyvibe.Dto.BoletoJson;
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 
 
 public interface BoletoService {
 
-    public Boleto crearBoleto(Boleto Boleto, String idVuelo);
+    public Boleto crearBoleto(BoletoJson boleto);
     
     public List<Boleto> boletosDeUsuario(int id);
 

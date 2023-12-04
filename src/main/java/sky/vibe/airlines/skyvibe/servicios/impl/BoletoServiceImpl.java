@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 import sky.vibe.airlines.skyvibe.modelos.Cliente;
 import sky.vibe.airlines.skyvibe.modelos.Vuelo;
+import sky.vibe.airlines.skyvibe.Dto.BoletoJson;
 import sky.vibe.airlines.skyvibe.modelos.Asientos;
 import sky.vibe.airlines.skyvibe.repositorios.AsientosRepository;
 import sky.vibe.airlines.skyvibe.repositorios.ClienteRepository;
@@ -31,40 +32,40 @@ public class BoletoServiceImpl implements BoletoService {
     private VueloRepository vueloRepository;
     
     @Override
-    public Boleto crearBoleto(Boleto boleto, String idVuelo) {
+    public Boleto crearBoleto(BoletoJson boletoJson) {
 
-    Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
+    Vuelo vuelo = this.vueloRepository.findById(boletoJson.getIdVuelo()).get();
 
     /**
      * Verificamos si el vuelo existe y si es un vuelo directo
      */
         if(vuelo != null && vuelo.getTipoVuelo()){
-        
+        Boleto boletoNuevo = new Boleto();
             /**
              * Realizamos la insercion del cliente en el boleto 
              */
-            if (boleto.getCliente() != null) {
-                Cliente cliente = this.clienteRepository.findById(boleto.getCliente().getIdCliente()).get();
+            // if (boleto.getIdCliente() != null) {
+                Cliente cliente = this.clienteRepository.findById(boletoJson.getIdCliente()).get();
                 if (cliente != null) {
-                    boleto.setCliente(cliente);
+                    boletoNuevo.setCliente(cliente);
                 }
-            }
+            
 
             /**
              * Al momento de crear un boleto la escala siempre será null debido que es un vuelo directo
              */
-            boleto.setEscala(null);
+            boletoNuevo.setEscala(null);
 
             /**
              * Agregamos el precio del boleto dependiendo del tipo de asiento y de la distancia
              * recorrida en el vuelo
              */
-            boleto.setPrecio(precioAsientoParaBoleto(idVuelo, boleto.getAsiento().getNombreAsiento()));
+            // boletoNuevo.setPrecio(precioAsientoParaBoleto(boletoJson.getIdVuelo(), boletoJson.getNombreAsiento()));
 
             /**
              * Verificamos que el asiento seleccionado exista
              */
-            if (boleto.getAsiento() != null) {
+            if (boletoJson.getNombreAsiento() != null) {
             
                 List<Asientos> asientos = vuelo.getAsientos();
                 
@@ -72,7 +73,7 @@ public class BoletoServiceImpl implements BoletoService {
                     /**
                      * Encontramos el asiento del vuelo a partir del nombre de asiento
                      */
-                    if(asiento.getNombreAsiento().equals(boleto.getAsiento().getNombreAsiento())){
+                    if(asiento.getNombreAsiento().equals(boletoJson.getNombreAsiento())){
                     
                         /**
                          * Verificamos que el asiento este disponible, en caso de serlo
@@ -80,16 +81,16 @@ public class BoletoServiceImpl implements BoletoService {
                          * de esta forma se genera el boleto y se guarda en la base de datos
                          */
                         if (asiento.getDisponible()) {
-                            boleto.setAsiento(asiento);
+                            boletoNuevo.setAsiento(asiento);
                             asiento.setDisponible(false);
                             this.asientosRepository.save(asiento);
-                            return this.boletoRepository.save(boleto);
+                            return this.boletoRepository.save(boletoNuevo);
                         }
                     }
                 }
             }
         }
-        return null; 
+                return null; 
     }
     
 
