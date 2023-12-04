@@ -35,8 +35,14 @@ public class BoletoServiceImpl implements BoletoService {
 
     Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
 
+    /**
+     * Verificamos si el vuelo existe y si es un vuelo directo
+     */
         if(vuelo != null && vuelo.getTipoVuelo()){
         
+            /**
+             * Realizamos la insercion del cliente en el boleto 
+             */
             if (boleto.getCliente() != null) {
                 Cliente cliente = this.clienteRepository.findById(boleto.getCliente().getIdCliente()).get();
                 if (cliente != null) {
@@ -44,18 +50,35 @@ public class BoletoServiceImpl implements BoletoService {
                 }
             }
 
+            /**
+             * Al momento de crear un boleto la escala siempre será null debido que es un vuelo directo
+             */
             boleto.setEscala(null);
 
+            /**
+             * Agregamos el precio del boleto dependiendo del tipo de asiento y de la distancia
+             * recorrida en el vuelo
+             */
             boleto.setPrecio(precioAsientoParaBoleto(idVuelo, boleto.getAsiento().getNombreAsiento()));
 
+            /**
+             * Verificamos que el asiento seleccionado exista
+             */
             if (boleto.getAsiento() != null) {
             
                 List<Asientos> asientos = vuelo.getAsientos();
                 
                 for (Asientos asiento : asientos) {
-                    
+                    /**
+                     * Encontramos el asiento del vuelo a partir del nombre de asiento
+                     */
                     if(asiento.getNombreAsiento().equals(boleto.getAsiento().getNombreAsiento())){
                     
+                        /**
+                         * Verificamos que el asiento este disponible, en caso de serlo
+                         * cambiamos su estado a no disponible y lo ingresamos en el boleto,
+                         * de esta forma se genera el boleto y se guarda en la base de datos
+                         */
                         if (asiento.getDisponible()) {
                             boleto.setAsiento(asiento);
                             asiento.setDisponible(false);
@@ -76,11 +99,17 @@ public class BoletoServiceImpl implements BoletoService {
     }
 
 
+    /**
+     * Obtiene el precio del vuelo segun la distancia
+     */
     @Override
     public Double precioVueloDirecto(Vuelo vuelo) {
         return ( vuelo.getRuta().getDistancia() ) * 2.29;
     }
 
+    /**
+     * Obtine el precio del asiento
+     */
     @Override
     public Double precioTipoAsiento(int idAsiento) {
         Asientos asiento = this.asientosRepository.findById(idAsiento).get();
@@ -92,18 +121,31 @@ public class BoletoServiceImpl implements BoletoService {
     }
 
 
+    /**
+     * Realiza la creacion de precio para un vuelo y un asiento en especifico
+     */
     @Override
     public Double precioAsientoParaBoleto(String idVuelo, String nombreAsiento) {
         Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
 
+        /**
+         * Verifica que el vuelo exista y que este sea directo
+         */
         if(vuelo != null && vuelo.getTipoVuelo() == true){
             
             List<Asientos> asientos = vuelo.getAsientos();
                 
                 for (Asientos asiento : asientos) {
                     
+                    /**
+                     * Encontramos el asiento del vuelo a partir de su nombre
+                     */
                     if(asiento.getNombreAsiento().equals(nombreAsiento)){
-                    
+
+                    /**
+                     * Sumamos el precio del vuelo y el precio del asiento llamando a ambos metodos
+                     * para obtener el precio total.
+                     */
                     return precioVueloDirecto(vuelo) + precioTipoAsiento(asiento.getIdAsiento());
                 }
             }        

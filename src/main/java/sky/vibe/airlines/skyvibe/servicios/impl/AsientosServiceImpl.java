@@ -110,6 +110,10 @@ public class AsientosServiceImpl  implements AsientosService{
     }
 
 
+    /**
+     * Cambia el estado del asiento a no disponible cuando el cliente lo selecciona
+     * a partir del nombre del asiento y el vuelo
+     */
     @Override
     public Asientos seleccionarAsientoNombre(String nombreAsiento, String idVuelo) {
         List<Asientos> asientos = this.asientosRepository.findAll();
@@ -132,8 +136,16 @@ public class AsientosServiceImpl  implements AsientosService{
     public String crearTotalAsientosPorVuelo(String idVuelo, int cantidadAsientos) {
         Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();
 
-        if (vuelo != null) {
-            TipoAsiento primeraClase = this.tipoAsientoRepository.findById(1).get();
+        /**
+         * Verifica si el vuelo existe y si es un vuelo directo
+         */
+        if (vuelo != null && vuelo.getTipoVuelo()) {
+
+            /**
+             * Obtenemos los tipos de asientos (clases de vuelo)
+             * Creamos los tipos de asientos y las columnas para el vuelos
+             */
+        TipoAsiento primeraClase = this.tipoAsientoRepository.findById(1).get();
         TipoAsiento ejecutivo = this.tipoAsientoRepository.findById(2).get();
         TipoAsiento normal = this.tipoAsientoRepository.findById(3).get();
         String[] columnasPrimeraClase = {"A", "B", "E", "F"};
@@ -141,7 +153,7 @@ public class AsientosServiceImpl  implements AsientosService{
         int filas = 0;
 
         /**
-         * Creamos asientos de primera clase
+         * Creamos asientos de primera clase con asientos disponibles
          */
         for (int i = 0; i < columnasPrimeraClase.length; i++) {
             for (int j = 0; j < 3; j++) {
@@ -156,7 +168,7 @@ public class AsientosServiceImpl  implements AsientosService{
         }
 
         /**
-         * Creamos asientos ejecutivos
+         * Creamos asientos ejecutivos con asientos disponibles
          */
         for (int i = 0; i < columnas.length; i++) {
             for (int j = 0; j < 6; j++) {
@@ -171,7 +183,7 @@ public class AsientosServiceImpl  implements AsientosService{
         }
 
         /**
-         * Creamos asientos normales
+         * Creamos asientos normales con asientos disponibles
          */
         for (int i = 0; i < columnas.length; i++) {
             for (int j = 0; j < (cantidadAsientos - 48); j++) {
@@ -192,9 +204,6 @@ public class AsientosServiceImpl  implements AsientosService{
     }
 
 
-    /**
-     * No realiza la eliminacion :/
-     */
     @Override
     public String eliiminarTotalAsientosPorVuelo(String idVuelo) {
     Vuelo vuelo = this.vueloRepository.findById(idVuelo).get();

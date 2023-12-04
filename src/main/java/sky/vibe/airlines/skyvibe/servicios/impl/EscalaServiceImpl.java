@@ -20,12 +20,18 @@ public class EscalaServiceImpl implements EscalaService{
     @Autowired
     private VueloRepository vueloRepository;
 
+    /**
+     * Crea la escala del vuelo padre
+     */
     @Override
     public Escala crearEscala(Escala escala) {
         if(escala.getVueloPadre() != null) {
             Vuelo vueloPadre = this.vueloRepository.findById(escala.getVueloPadre().getIdVuelo()).get();
             Vuelo vuelo = this.vueloRepository.findById(escala.getVuelo().getIdVuelo()).get();
 
+            /**
+             * Verifica que el "vueloPadre" sea un vuelo indirecto
+             */
             if (!vueloPadre.getTipoVuelo()) {
                 escala.setVueloPadre(vueloPadre);
                 escala.setVuelo(vuelo);

@@ -67,9 +67,4 @@ public class AsientoController {
     public String crearTotalAsientosPorVuelo(@RequestParam(name = "idVuelo") String idVuelo, @RequestParam(name = "cantidadAsientos") int cantidadAsientos) {
         return this.asientosServiceImpl.crearTotalAsientosPorVuelo(idVuelo, cantidadAsientos);
     }
-
-    @DeleteMapping("/eliminar/todos")
-    public String eliiminarTotalAsientosPorVuelo(@RequestParam(name = "idVuelo") String idVuelo) {
-        return this.asientosServiceImpl.eliiminarTotalAsientosPorVuelo(idVuelo);
-    }
 }
