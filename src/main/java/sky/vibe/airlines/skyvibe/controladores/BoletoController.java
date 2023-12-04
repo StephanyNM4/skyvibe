@@ -22,7 +22,7 @@ public class BoletoController {
     private BoletoServiceImpl boletoServiceImpl;
 
     @PostMapping("/crear")
-    public Boleto crearBoleto(@RequestBody BoletoJson boletoJson) {
+    public String crearBoleto(@RequestBody BoletoJson boletoJson) {
         return this.boletoServiceImpl.crearBoleto(boletoJson);
     }
 

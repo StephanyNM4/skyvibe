@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import sky.vibe.airlines.skyvibe.modelos.Boleto;
 import sky.vibe.airlines.skyvibe.modelos.Cliente;
+import sky.vibe.airlines.skyvibe.modelos.Escala;
 import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 import sky.vibe.airlines.skyvibe.Dto.BoletoJson;
 import sky.vibe.airlines.skyvibe.modelos.Asientos;
@@ -32,9 +33,19 @@ public class BoletoServiceImpl implements BoletoService {
     private VueloRepository vueloRepository;
     
     @Override
-    public Boleto crearBoleto(BoletoJson boletoJson) {
+    public String crearBoleto(BoletoJson boletoJson) {
 
     Vuelo vuelo = this.vueloRepository.findById(boletoJson.getIdVuelo()).get();
+
+    if(vuelo != null && !vuelo.getTipoVuelo()){
+        List<Escala> escalas = vuelo.getEscalas();
+        
+        for (Escala escala : escalas) {
+            Vuelo vueloEscala = escala.getVuelo();
+            boletoJson.setIdVuelo(vueloEscala.getIdVuelo());
+            crearBoleto(boletoJson);
+        }
+    }
 
     /**
      * Verificamos si el vuelo existe y si es un vuelo directo
@@ -84,13 +95,14 @@ public class BoletoServiceImpl implements BoletoService {
                             boletoNuevo.setAsiento(asiento);
                             asiento.setDisponible(false);
                             this.asientosRepository.save(asiento);
-                            return this.boletoRepository.save(boletoNuevo);
+                            this.boletoRepository.save(boletoNuevo);
+                            return "Boleto creado";
                         }
                     }
                 }
             }
         }
-                return null; 
+                return "Boleto"; 
     }
     
 

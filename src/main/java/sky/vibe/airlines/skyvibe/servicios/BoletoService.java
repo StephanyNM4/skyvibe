@@ -9,7 +9,7 @@ import sky.vibe.airlines.skyvibe.modelos.Vuelo;
 
 public interface BoletoService {
 
-    public Boleto crearBoleto(BoletoJson boleto);
+    public String crearBoleto(BoletoJson boleto);
     
     public List<Boleto> boletosDeUsuario(int id);
 
