@@ -37,12 +37,25 @@ public class BoletoServiceImpl implements BoletoService {
 
     Vuelo vuelo = this.vueloRepository.findById(boletoJson.getIdVuelo()).get();
 
+    /**
+     * Verificamos que el vuelo sea null y que sea indirecto
+     * en caso creariamos los boletos para cada escala
+     */
     if(vuelo != null && !vuelo.getTipoVuelo()){
         List<Escala> escalas = vuelo.getEscalas();
         
         for (Escala escala : escalas) {
+
+            /**
+             * Obtenemos los vuelos de las escalas
+             */
             Vuelo vueloEscala = escala.getVuelo();
             boletoJson.setIdVuelo(vueloEscala.getIdVuelo());
+
+            /**
+             * Utilizamos de forma recursiva la funcion crear boleto para crear los boletos 
+             * de cada escala
+             */
             crearBoleto(boletoJson);
         }
     }
